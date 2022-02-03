@@ -1,7 +1,7 @@
 # Avaliação Técnica - Programa de Trainee 01/22
 
 ## QUESTÃO 1: Banco de dados SQL
-Um comércio eletrônico está realizando uma análise dos produtos em estoque no seu banco de dados. <br>
+Um comércio eletrônico está realizando uma análise dos produtos em estoque no seu banco de dados (Arquivo SQLTreinee22.sql). <br>
 ● Retornar uma lista que apresente o nome das categorias e a quantidade de produtos totais em cada categoria. <br>
 ● Apresentar um relatório com as 4 categorias que mais tiveram produtos comprados. <br>
 Obs.: Os SQLs criados foram feitos no Oracle
