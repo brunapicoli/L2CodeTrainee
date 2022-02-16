@@ -20,6 +20,7 @@ int main()
   string tense;
   string person;
   string word, suffix, prefix;
+  int index;
   bool wasFound;
 
   // input file
@@ -35,77 +36,27 @@ int main()
     fin >> word;
     fout << word << " - ";
 
-    suffix = word.substr(word.length() - 4, 4); // stores the last 3 letters
-    prefix = word.substr(0, word.length() - 4); // stores the remaining letters
+    index = 4;
     wasFound = false;
 
-    for (int i = 0; i < 7; i++)
+    while (index != 0 && wasFound == false)
     {
-      for (int j = 0; j < 4; j++)
+      suffix = word.substr(word.length() - index, index);
+      prefix = word.substr(0, word.length() - index);
+      index--;
+      for (int i = 0; i < 7; i++)
       {
-        if (suffix == tabel[i][j])
+        for (int j = 0; j < 4; j++)
         {
-          verb = "verb " + prefix + "en, ";
-          tense = tabel[0][j] + " tense, ";
-          person = tabel[i][0] + " person";
-          wasFound = true;
-          break;
-        }
-      }
-    }
-    for (int i = 0; i < 7; i++)
-    {
-      for (int j = 0; j < 4; j++)
-      {
-        if (!wasFound)
-        {
-          prefix = word.substr(0, word.length() - 3);
-          suffix = word.substr(word.length() - 3, 3);
-          if (suffix == tabel[i][j] && !wasFound)
+          if (suffix.length() == tabel[i][j].length())
           {
-            verb = "verb " + prefix + "en, ";
-            tense = tabel[0][j] + " tense, ";
-            person = tabel[i][0] + " person";
-            wasFound = true;
-            break;
-          }
-        }
-      }
-    }
-    for (int i = 0; i < 7; i++)
-    {
-      for (int j = 0; j < 4; j++)
-      {
-        if (!wasFound)
-        {
-          prefix = word.substr(0, word.length() - 2);
-          suffix = word.substr(word.length() - 2, 2);
-          if (suffix == tabel[i][j] && !wasFound)
-          {
-            verb = "verb " + prefix + "en, ";
-            tense = tabel[0][j] + " tense, ";
-            person = tabel[i][0] + " person";
-            wasFound = true;
-            break;
-          }
-        }
-      }
-    }
-    for (int i = 0; i < 7; i++)
-    {
-      for (int j = 0; j < 4; j++)
-      {
-        if (!wasFound)
-        {
-          prefix = word.substr(0, word.length() - 1);
-          suffix = word.substr(word.length() - 1, 1);
-          if (suffix == tabel[i][j] && !wasFound)
-          {
-            verb = "verb " + prefix + "en, ";
-            tense = tabel[0][j] + " tense, ";
-            person = tabel[i][0] + " person";
-            wasFound = true;
-            break;
+            if (suffix == tabel[i][j])
+            {
+              verb = "verb " + prefix + "en, ";
+              tense = tabel[0][j] + " tense, ";
+              person = tabel[i][0] + " person";
+              wasFound = true;
+            }
           }
         }
       }
